@@ -1,116 +1,131 @@
-Parfait, voici ton fichier README.md prêt à être ajouté à ton repo GitHub iconosquare.
-Il est clair, bien structuré, et compatible avec l’affichage GitHub (et Notion si tu veux le copier là-bas aussi).
+Parfait, voici un README.md orienté utilisation uniquement, ultra clair, prêt à être lu directement depuis GitHub ou copié dans Notion.
 
 ⸻
 
 
 
-# 🎯 Iconosquare – GSAP Animation Kit
+# 📘 Iconosquare – Guide d’utilisation des animations
 
-Ce script rassemble toutes les animations GSAP personnalisées utilisées sur les projets Iconosquare. Il est pensé pour Webflow (ou autre) et s'intègre facilement via CDN.
-
----
-
-## ✅ Contenu
-
-- **Animations texte** (`fade-up`, `scale-in`, `rotate-in`, `slide-left`)
-  - Possibilité d’animer **mot par mot** ou le **bloc entier**
-  - Option de réglage personnalisé : `data-duration`, `data-stagger`
-
-- **Animation d'images**
-  - `img-reveal`, `img-reveal-top` (avec clip-path)
-
-- **Effets boutons**
-  - `btn-blue` : hover avec overlay circulaire
-  - `.cta-big_link` : hover simulé au scroll sur mobile
+Ce projet regroupe les scripts d’animation utilisés sur les pages Webflow d’Iconosquare.
 
 ---
 
-## 🚀 Utilisation
+## 🚀 Intégration
 
-### 1. Inclure les dépendances
+### 1. Ajouter les dépendances GSAP
+
+Dans Webflow ou dans ton projet HTML, ajoute **ces 3 CDN obligatoires** avant le script principal :
 
 ```html
 <script src="https://unpkg.com/split-type"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+2. Charger le script Iconosquare
+
 <script src="https://cdn.jsdelivr.net/gh/robindelporte/iconosquare@latest/gsap.js"></script>
 
 
 
 ⸻
 
-2. Animations texte
+🧩 Utilisation des effets
 
-➤ Exemple simple
+✨ Animation de texte
 
-<h2 data-effect="text-fade-up">Titre animé</h2>
+Structure de base :
 
-➤ Exemple mot par mot
+<h2 data-effect="text-fade-up">Texte animé</h2>
 
-<h2 data-effect="text-rotate-in" data-split="words">Animation mot par mot</h2>
+Options disponibles :
 
-➤ Avec vitesse personnalisée
+Attribut	Description	Exemple
+data-effect	Type d’animation (fade, rotate, etc.)	text-fade-up
+data-split	Animation par mot (si words)	data-split="words"
+data-duration	Durée custom (facultatif)	data-duration="0.5"
+data-stagger	Délai entre les mots (facultatif)	data-stagger="0.08"
 
-<h2
-  data-effect="text-slide-left"
-  data-split="words"
-  data-duration="0.6"
-  data-stagger="0.1"
->
-  Animation fluide personnalisée
-</h2>
-
-
+Effets disponibles :
+	•	text-fade-up
+	•	text-scale-in
+	•	text-rotate-in
+	•	text-slide-left
 
 ⸻
 
-3. Animation d’images
+🖼 Animation d’images
+
+Ajout de l’attribut :
 
 <img src="..." data-effect="img-reveal">
 <img src="..." data-effect="img-reveal-top">
 
+Effets disponibles :
+	•	img-reveal → masque horizontal (depuis les côtés)
+	•	img-reveal-top → masque vertical (depuis le haut)
+
+Durée : 1.3s par défaut
+
+⸻
+
+🔘 Animation des boutons
+
+btn-blue — overlay circulaire
+
+<button data-effect="btn-blue">Bouton</button>
+
+Nécessite que le bouton ait position: relative
+L’effet crée automatiquement un overlay circulaire au hover
+
+⸻
+
+.cta-big_link — hover déclenché au scroll (mobile uniquement)
+
+<a class="cta-big_link">Je veux tester</a>
+
+Pas besoin d’attribut : effet automatique au scroll sur mobile
+
+⸻
+
+🛠 Utilisation dans Webflow
+	•	Les effets fonctionnent avec le CMS
+	•	L’animation par mot est compatible avec les titres contenant des icônes (grâce à display-inline)
+	•	Les animations sont jouées une seule fois au scroll (once: true)
+	•	Les animations sont configurables sans modifier le JS
+
+⸻
+
+📎 Exemple complet
+
+<h2 data-effect="text-rotate-in" data-split="words" data-duration="0.6" data-stagger="0.1">
+  Découvrez nos outils Instagram
+</h2>
+
+<img src="..." data-effect="img-reveal-top">
+
+<a class="cta-big_link">Essayer maintenant</a>
+<button data-effect="btn-blue">En savoir plus</button>
+
 
 
 ⸻
 
-4. Boutons
-
-btn-blue
-
-<button data-effect="btn-blue">Hover overlay</button>
-
-.cta-big_link (automatique sur mobile)
-
-<a class="cta-big_link">Scroll-to-hover</a>
-
-
+🧪 Environnement supporté
+	•	✅ Webflow
+	•	✅ HTML statique
+	•	✅ Mobile + desktop
+	•	✅ CMS ready
 
 ⸻
 
-📁 Arborescence recommandée
+✍️ Licence
 
-iconosquare/
-├── gsap.js
-├── README.md
+Utilisation libre sur les projets Iconosquare.
 
+---
 
+Tu peux maintenant :
+- Copier ce contenu dans ton fichier `README.md`
+- Ou le drag & drop direct dans GitHub Desktop
 
-⸻
-
-🔗 CDN public
-
-Tu peux intégrer le script avec ce lien :
-
-https://cdn.jsdelivr.net/gh/robindelporte/iconosquare@latest/gsap.js
-
-
-
-⸻
-
-🧠 Infos techniques
-	•	Basé sur GSAP + ScrollTrigger + SplitType
-	•	Compatible Webflow et autres systèmes CMS
-	•	ScrollTrigger joue les animations une seule fois (once: true)
-	•	Aucun framework requis
-
+Tu veux un petit badge style “Made for Webflow” aussi ? 😄

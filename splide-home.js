@@ -2,8 +2,8 @@ import splidejsSplide from "https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/
 
 const splideMain = new splidejsSplide(".splide.is-temoignage", {
   type: "slide",
-  perPage: 1,
-  autoWidth: false,
+  perPage: "auto",
+  autoWidth: true,
   pagination: false,
   arrows: false,
   rewind: false,
@@ -70,7 +70,6 @@ function applyPaginationStyles() {
           textEl.style.opacity = '1';
           textEl.style.visibility = 'visible';
           textEl.style.lineHeight = '1';
-          textEl.style.color = 'white';
         }
       } else {
         Object.assign(slide.style, {

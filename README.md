@@ -123,9 +123,3 @@ iconosquare/
 🔖 Licence
 
 Usage libre sur tous les projets d’Iconosquare.
-
----
-
-✅ Tu peux maintenant le **coller dans GitHub tel quel**  
-✅ Ou le glisser dans Notion, il passera clean aussi  
-Tu veux que je te fasse le `.zip` du repo complet avec ce `README.md` et les scripts ?

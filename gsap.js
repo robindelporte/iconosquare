@@ -1,4 +1,4 @@
-// gsap.js — iconosquare animation script — v1.0 — 2025-03-28
+// gsap.js — iconosquare animation script — v1.1 — 2025-07-07
 
 document.addEventListener("DOMContentLoaded", function () {
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
@@ -19,6 +19,30 @@ document.addEventListener("DOMContentLoaded", function () {
     "text-slide-left": {
       from: { opacity: 0, x: -30 },
       to: { opacity: 1, x: 0, duration: 0.5, stagger: 0.06, ease: "power2.out" }
+    },
+    "block-slide-up": {
+      from: { opacity: 0, y: 50 },
+      to: { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
+    },
+    "block-slide-down": {
+      from: { opacity: 0, y: -50 },
+      to: { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
+    },
+    "block-fade-in": {
+      from: { opacity: 0 },
+      to: { opacity: 1, duration: 0.8, ease: "power2.out" }
+    },
+    "block-zoom-in": {
+      from: { opacity: 0, scale: 0.9 },
+      to: { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" }
+    },
+    "block-rotate-fade": {
+      from: { opacity: 0, rotation: 10 },
+      to: { opacity: 1, rotation: 0, duration: 0.8, ease: "power2.out" }
+    },
+    "block-scale-blur": {
+      from: { opacity: 0, scale: 0.95, filter: "blur(10px)" },
+      to: { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.8, ease: "power2.out" }
     }
   };
 

@@ -1,6 +1,6 @@
 import splidejsSplide from "https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/+esm";
 
-const splideMain = new splidejsSplide(".temoignage_slider .splide:not(.is-pagination)", {
+const splideMain = new splidejsSplide(".splide.is-temoignage", {
   type: "slide",
   perPage: 1,
   perMove: 1,
@@ -13,7 +13,7 @@ const splideMain = new splidejsSplide(".temoignage_slider .splide:not(.is-pagina
   trimSpace: false
 });
 
-const splidePagination = new splidejsSplide(".temoignage_slider .splide.is-pagination", {
+const splidePagination = new splidejsSplide(".splide.is-pagination", {
   autoWidth: true,
   perPage: "auto",
   updateOnMove: true,

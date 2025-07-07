@@ -3,7 +3,7 @@ import splidejsSplide from "https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/
 const splideMain = new splidejsSplide(".splide.is-temoignage", {
   type: "slide",
   perPage: 1,
-  perMove: 1,
+  autoWidth: false,
   pagination: false,
   arrows: false,
   rewind: false,

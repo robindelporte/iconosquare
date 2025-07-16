@@ -1,5 +1,3 @@
-// gsap.js — iconosquare animation script — v1.1 — 2025-07-07
-
 document.addEventListener("DOMContentLoaded", function () {
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
@@ -50,7 +48,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(`[data-effect="${effect}"]`).forEach(el => {
       const shouldSplit = el.getAttribute("data-split") === "words";
       const duration = parseFloat(el.getAttribute("data-duration")) || textEffects[effect].to.duration;
-      const stagger = parseFloat(el.getAttribute("data-stagger")) || textEffects[effect].to.stagger;
+      const stagger = parseFloat(el.getAttribute("data-stagger")) || textEffects[effect].to.stagger || 0;
+      const delay = parseFloat(el.getAttribute("data-delay")) || 0;
 
       if (shouldSplit) {
         new SplitType(el, { types: "words", tagName: "span" });
@@ -64,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ...textEffects[effect].to,
             duration,
             stagger,
+            delay,
             scrollTrigger: {
               trigger: el,
               start: "top 80%",
@@ -80,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ...textEffects[effect].to,
             duration,
             stagger,
+            delay,
             scrollTrigger: {
               trigger: el,
               start: "top 80%",
@@ -176,6 +177,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   Object.entries(imageEffects).forEach(([attr, config]) => {
     document.querySelectorAll(`[data-effect="${attr}"]`).forEach((img) => {
+      const delay = parseFloat(img.getAttribute("data-delay")) || 0;
+
       gsap.set(img, {
         clipPath: config.startClip,
         opacity: 1
@@ -185,6 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
         clipPath: config.endClip,
         duration: 1.3,
         ease: "power2.out",
+        delay,
         scrollTrigger: {
           trigger: img,
           start: "top 85%",
